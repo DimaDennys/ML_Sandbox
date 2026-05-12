@@ -1,0 +1,501 @@
+location,event_type,time_of_day,crowd_size,incident_type,severity
+Lecture Hall,Festival,Night,391,Disturbance,2
+Cafeteria,Concert,Night,459,Medical,2
+Sports Complex,Party,Night,320,Medical,2
+Cafeteria,Sports Event,Night,236,Disturbance,1
+Cafeteria,Sports Event,Night,179,Disturbance,1
+Dormitory,Concert,Morning,43,Vandalism,0
+Sports Complex,Festival,Night,423,Vandalism,2
+Sports Complex,Festival,Morning,260,Medical,1
+Sports Complex,Party,Night,256,Theft,1
+Cafeteria,Concert,Evening,278,Disturbance,1
+Lecture Hall,Sports Event,Afternoon,150,Vandalism,1
+Sports Complex,Festival,Morning,283,Medical,1
+Cafeteria,Concert,Night,425,Vandalism,2
+Dormitory,Festival,Evening,105,Disturbance,1
+Lecture Hall,Festival,Afternoon,236,Disturbance,1
+Dormitory,Sports Event,Morning,388,Fire,2
+Lecture Hall,Seminar,Afternoon,48,Theft,0
+Cafeteria,Party,Evening,311,Fire,2
+Library,Party,Morning,38,Medical,0
+Lecture Hall,Sports Event,Afternoon,455,Vandalism,2
+Dormitory,Festival,Night,486,Medical,2
+Cafeteria,Concert,Morning,327,Disturbance,2
+Lecture Hall,Festival,Afternoon,254,Fire,1
+Library,Sports Event,Evening,245,Fire,1
+Library,Party,Evening,194,Fire,1
+Sports Complex,Festival,Morning,281,Medical,1
+Sports Complex,Party,Afternoon,449,Disturbance,2
+Dormitory,Concert,Morning,245,Vandalism,1
+Lecture Hall,Party,Morning,248,Vandalism,1
+Lecture Hall,Party,Afternoon,386,Medical,2
+Sports Complex,Seminar,Afternoon,275,Fire,1
+Lecture Hall,Seminar,Night,423,Theft,2
+Lecture Hall,Seminar,Afternoon,418,Medical,2
+Library,Party,Evening,368,Medical,2
+Sports Complex,Sports Event,Morning,349,Disturbance,2
+Cafeteria,Party,Morning,398,Vandalism,2
+Sports Complex,Sports Event,Evening,74,Medical,0
+Cafeteria,Sports Event,Afternoon,487,Medical,2
+Library,Seminar,Evening,186,Fire,1
+Dormitory,Festival,Evening,12,Fire,0
+Lecture Hall,Concert,Night,438,Theft,2
+Library,Seminar,Evening,151,Disturbance,1
+Lecture Hall,Seminar,Morning,385,Theft,2
+Dormitory,Festival,Evening,167,Fire,1
+Dormitory,Concert,Morning,333,Vandalism,2
+Library,Party,Morning,155,Fire,1
+Dormitory,Party,Morning,455,Disturbance,2
+Cafeteria,Seminar,Afternoon,302,Fire,2
+Dormitory,Concert,Night,162,Disturbance,1
+Lecture Hall,Seminar,Morning,441,Disturbance,2
+Lecture Hall,Sports Event,Morning,202,Disturbance,1
+Lecture Hall,Seminar,Afternoon,446,Disturbance,2
+Lecture Hall,Seminar,Morning,472,Disturbance,2
+Cafeteria,Party,Evening,82,Vandalism,0
+Sports Complex,Party,Evening,408,Theft,2
+Library,Party,Night,314,Medical,2
+Lecture Hall,Sports Event,Morning,386,Theft,2
+Dormitory,Party,Afternoon,353,Disturbance,2
+Lecture Hall,Concert,Evening,461,Vandalism,2
+Dormitory,Festival,Afternoon,149,Fire,1
+Dormitory,Concert,Afternoon,196,Vandalism,1
+Lecture Hall,Concert,Evening,302,Disturbance,2
+Cafeteria,Party,Afternoon,70,Vandalism,0
+Dormitory,Festival,Evening,494,Vandalism,2
+Dormitory,Festival,Afternoon,436,Disturbance,2
+Lecture Hall,Festival,Evening,389,Vandalism,2
+Dormitory,Sports Event,Morning,207,Medical,1
+Dormitory,Party,Night,304,Medical,2
+Lecture Hall,Festival,Evening,449,Vandalism,2
+Lecture Hall,Sports Event,Evening,328,Fire,2
+Library,Seminar,Night,311,Disturbance,2
+Cafeteria,Seminar,Evening,353,Medical,2
+Cafeteria,Sports Event,Evening,20,Fire,0
+Dormitory,Sports Event,Afternoon,71,Vandalism,0
+Cafeteria,Party,Night,342,Fire,2
+Dormitory,Party,Morning,235,Theft,1
+Library,Seminar,Evening,162,Medical,1
+Lecture Hall,Festival,Night,208,Vandalism,1
+Lecture Hall,Seminar,Afternoon,61,Disturbance,0
+Lecture Hall,Festival,Morning,269,Vandalism,1
+Cafeteria,Festival,Night,68,Disturbance,0
+Library,Party,Morning,81,Vandalism,0
+Cafeteria,Concert,Morning,157,Fire,1
+Cafeteria,Concert,Morning,358,Fire,2
+Library,Sports Event,Evening,72,Fire,0
+Library,Party,Evening,319,Theft,2
+Library,Festival,Afternoon,382,Disturbance,2
+Library,Concert,Afternoon,252,Fire,1
+Lecture Hall,Festival,Night,375,Theft,2
+Sports Complex,Concert,Afternoon,339,Disturbance,2
+Sports Complex,Concert,Morning,116,Vandalism,1
+Library,Concert,Morning,235,Theft,1
+Sports Complex,Party,Evening,322,Medical,2
+Sports Complex,Seminar,Morning,227,Theft,1
+Library,Festival,Night,434,Theft,2
+Sports Complex,Party,Morning,250,Disturbance,1
+Cafeteria,Party,Morning,268,Vandalism,1
+Dormitory,Party,Night,385,Medical,2
+Dormitory,Party,Afternoon,271,Fire,1
+Library,Party,Afternoon,14,Fire,0
+Lecture Hall,Sports Event,Night,270,Theft,1
+Library,Festival,Evening,63,Disturbance,0
+Lecture Hall,Party,Morning,56,Disturbance,0
+Dormitory,Festival,Night,224,Fire,1
+Library,Sports Event,Morning,186,Medical,1
+Cafeteria,Sports Event,Evening,18,Vandalism,0
+Sports Complex,Festival,Morning,108,Medical,1
+Lecture Hall,Concert,Night,29,Vandalism,0
+Sports Complex,Seminar,Morning,387,Fire,2
+Sports Complex,Concert,Afternoon,250,Vandalism,1
+Library,Concert,Evening,70,Disturbance,0
+Sports Complex,Concert,Evening,388,Theft,2
+Cafeteria,Party,Evening,499,Theft,2
+Sports Complex,Sports Event,Night,428,Fire,2
+Library,Concert,Evening,187,Disturbance,1
+Cafeteria,Sports Event,Afternoon,347,Medical,2
+Dormitory,Festival,Night,71,Disturbance,0
+Sports Complex,Seminar,Afternoon,154,Theft,1
+Library,Festival,Morning,225,Theft,1
+Dormitory,Festival,Morning,12,Disturbance,0
+Dormitory,Party,Morning,169,Disturbance,1
+Lecture Hall,Seminar,Morning,236,Theft,1
+Cafeteria,Festival,Afternoon,495,Medical,2
+Sports Complex,Festival,Night,278,Fire,1
+Library,Seminar,Night,129,Fire,1
+Lecture Hall,Seminar,Evening,390,Disturbance,2
+Cafeteria,Festival,Afternoon,98,Fire,0
+Lecture Hall,Seminar,Morning,338,Theft,2
+Cafeteria,Festival,Afternoon,77,Theft,0
+Cafeteria,Festival,Evening,407,Disturbance,2
+Sports Complex,Party,Evening,366,Disturbance,2
+Cafeteria,Concert,Afternoon,107,Disturbance,1
+Lecture Hall,Festival,Afternoon,276,Medical,1
+Cafeteria,Sports Event,Afternoon,114,Fire,1
+Sports Complex,Concert,Night,449,Disturbance,2
+Sports Complex,Concert,Morning,332,Vandalism,2
+Lecture Hall,Concert,Afternoon,132,Vandalism,1
+Dormitory,Party,Afternoon,485,Theft,2
+Dormitory,Festival,Afternoon,38,Fire,0
+Cafeteria,Party,Evening,146,Disturbance,1
+Library,Festival,Evening,204,Vandalism,1
+Cafeteria,Party,Night,418,Fire,2
+Lecture Hall,Party,Morning,235,Theft,1
+Lecture Hall,Sports Event,Night,341,Medical,2
+Lecture Hall,Party,Morning,179,Fire,1
+Lecture Hall,Seminar,Evening,18,Fire,0
+Lecture Hall,Sports Event,Evening,472,Medical,2
+Sports Complex,Party,Evening,49,Fire,0
+Dormitory,Concert,Night,34,Theft,0
+Lecture Hall,Seminar,Afternoon,270,Theft,1
+Library,Seminar,Afternoon,404,Medical,2
+Library,Seminar,Evening,452,Disturbance,2
+Library,Sports Event,Afternoon,235,Vandalism,1
+Library,Party,Afternoon,481,Disturbance,2
+Sports Complex,Party,Night,133,Fire,1
+Library,Concert,Morning,472,Vandalism,2
+Lecture Hall,Concert,Evening,47,Medical,0
+Cafeteria,Seminar,Evening,337,Medical,2
+Library,Concert,Night,260,Vandalism,1
+Sports Complex,Sports Event,Night,398,Theft,2
+Sports Complex,Party,Afternoon,185,Vandalism,1
+Library,Seminar,Evening,99,Fire,0
+Cafeteria,Concert,Morning,411,Theft,2
+Library,Sports Event,Night,463,Medical,2
+Sports Complex,Sports Event,Morning,46,Vandalism,0
+Dormitory,Concert,Morning,325,Disturbance,2
+Lecture Hall,Party,Evening,185,Disturbance,1
+Sports Complex,Concert,Evening,470,Fire,2
+Library,Seminar,Night,293,Disturbance,1
+Lecture Hall,Concert,Evening,462,Vandalism,2
+Library,Sports Event,Evening,470,Vandalism,2
+Library,Concert,Evening,90,Disturbance,0
+Dormitory,Party,Morning,123,Vandalism,1
+Lecture Hall,Festival,Night,49,Fire,0
+Lecture Hall,Concert,Afternoon,310,Theft,2
+Dormitory,Party,Morning,233,Fire,1
+Sports Complex,Party,Evening,327,Fire,2
+Library,Sports Event,Morning,358,Vandalism,2
+Cafeteria,Party,Evening,124,Theft,1
+Library,Party,Evening,195,Vandalism,1
+Library,Party,Morning,332,Medical,2
+Sports Complex,Party,Night,65,Vandalism,0
+Library,Seminar,Evening,49,Vandalism,0
+Dormitory,Seminar,Night,363,Vandalism,2
+Dormitory,Sports Event,Afternoon,49,Theft,0
+Lecture Hall,Concert,Evening,356,Vandalism,2
+Cafeteria,Party,Night,470,Theft,2
+Library,Concert,Night,246,Disturbance,1
+Library,Concert,Afternoon,298,Medical,1
+Sports Complex,Sports Event,Night,271,Theft,1
+Dormitory,Party,Night,225,Disturbance,1
+Cafeteria,Party,Afternoon,156,Theft,1
+Lecture Hall,Festival,Evening,345,Theft,2
+Dormitory,Concert,Night,177,Medical,1
+Lecture Hall,Concert,Night,101,Fire,1
+Sports Complex,Seminar,Night,362,Fire,2
+Sports Complex,Festival,Morning,68,Theft,0
+Library,Seminar,Afternoon,68,Vandalism,0
+Cafeteria,Seminar,Morning,313,Disturbance,2
+Lecture Hall,Seminar,Afternoon,178,Vandalism,1
+Dormitory,Sports Event,Evening,278,Vandalism,1
+Sports Complex,Sports Event,Evening,372,Theft,2
+Library,Seminar,Night,54,Theft,0
+Library,Festival,Afternoon,354,Theft,2
+Lecture Hall,Concert,Evening,190,Theft,1
+Sports Complex,Festival,Afternoon,179,Fire,1
+Cafeteria,Party,Evening,365,Theft,2
+Sports Complex,Sports Event,Morning,200,Fire,1
+Lecture Hall,Concert,Evening,164,Fire,1
+Lecture Hall,Concert,Morning,431,Theft,2
+Sports Complex,Party,Evening,197,Medical,1
+Lecture Hall,Party,Night,16,Disturbance,0
+Sports Complex,Seminar,Morning,142,Vandalism,1
+Dormitory,Sports Event,Evening,244,Fire,1
+Sports Complex,Sports Event,Night,54,Disturbance,0
+Sports Complex,Festival,Morning,323,Medical,2
+Lecture Hall,Seminar,Night,258,Vandalism,1
+Lecture Hall,Seminar,Afternoon,40,Vandalism,0
+Library,Seminar,Afternoon,32,Fire,0
+Library,Seminar,Morning,435,Theft,2
+Dormitory,Sports Event,Evening,403,Medical,2
+Library,Sports Event,Morning,169,Fire,1
+Sports Complex,Seminar,Night,372,Medical,2
+Lecture Hall,Festival,Evening,446,Theft,2
+Library,Concert,Afternoon,167,Theft,1
+Library,Concert,Evening,48,Fire,0
+Dormitory,Festival,Afternoon,424,Theft,2
+Dormitory,Seminar,Evening,91,Disturbance,0
+Sports Complex,Sports Event,Evening,365,Vandalism,2
+Lecture Hall,Concert,Evening,267,Fire,1
+Dormitory,Party,Night,215,Medical,1
+Library,Party,Night,86,Disturbance,0
+Lecture Hall,Festival,Morning,486,Fire,2
+Lecture Hall,Seminar,Morning,21,Theft,0
+Library,Concert,Afternoon,304,Theft,2
+Dormitory,Seminar,Night,459,Theft,2
+Library,Concert,Afternoon,233,Theft,1
+Lecture Hall,Festival,Morning,22,Medical,0
+Cafeteria,Festival,Afternoon,55,Disturbance,0
+Cafeteria,Party,Morning,164,Vandalism,1
+Sports Complex,Seminar,Night,122,Medical,1
+Library,Party,Evening,242,Medical,1
+Library,Seminar,Night,26,Vandalism,0
+Sports Complex,Party,Afternoon,369,Vandalism,2
+Sports Complex,Sports Event,Afternoon,232,Theft,1
+Sports Complex,Sports Event,Night,363,Medical,2
+Lecture Hall,Sports Event,Night,197,Fire,1
+Library,Sports Event,Morning,457,Vandalism,2
+Lecture Hall,Concert,Afternoon,353,Vandalism,2
+Sports Complex,Sports Event,Afternoon,374,Disturbance,2
+Library,Festival,Night,172,Fire,1
+Lecture Hall,Festival,Evening,335,Fire,2
+Lecture Hall,Concert,Afternoon,476,Vandalism,2
+Sports Complex,Sports Event,Evening,423,Theft,2
+Library,Sports Event,Night,464,Disturbance,2
+Sports Complex,Sports Event,Night,83,Fire,0
+Library,Party,Morning,242,Vandalism,1
+Cafeteria,Seminar,Afternoon,233,Fire,1
+Dormitory,Party,Evening,491,Disturbance,2
+Dormitory,Seminar,Morning,328,Disturbance,2
+Dormitory,Sports Event,Afternoon,421,Medical,2
+Sports Complex,Sports Event,Morning,69,Vandalism,0
+Cafeteria,Party,Night,344,Disturbance,2
+Library,Party,Afternoon,231,Medical,1
+Lecture Hall,Seminar,Morning,46,Medical,0
+Library,Festival,Morning,486,Fire,2
+Lecture Hall,Seminar,Evening,287,Fire,1
+Library,Party,Morning,205,Medical,1
+Cafeteria,Party,Afternoon,413,Fire,2
+Lecture Hall,Concert,Afternoon,361,Disturbance,2
+Sports Complex,Party,Evening,493,Theft,2
+Library,Concert,Afternoon,251,Disturbance,1
+Library,Festival,Night,333,Medical,2
+Lecture Hall,Seminar,Afternoon,228,Medical,1
+Sports Complex,Seminar,Afternoon,201,Disturbance,1
+Sports Complex,Concert,Morning,26,Fire,0
+Cafeteria,Seminar,Morning,21,Fire,0
+Sports Complex,Party,Afternoon,415,Medical,2
+Sports Complex,Sports Event,Evening,410,Vandalism,2
+Sports Complex,Concert,Morning,403,Fire,2
+Dormitory,Seminar,Evening,383,Disturbance,2
+Cafeteria,Concert,Afternoon,202,Fire,1
+Library,Concert,Afternoon,31,Disturbance,0
+Lecture Hall,Sports Event,Night,483,Medical,2
+Library,Party,Morning,129,Fire,1
+Cafeteria,Concert,Afternoon,219,Disturbance,1
+Lecture Hall,Seminar,Night,315,Medical,2
+Cafeteria,Festival,Morning,279,Vandalism,1
+Sports Complex,Concert,Afternoon,201,Disturbance,1
+Lecture Hall,Concert,Afternoon,184,Vandalism,1
+Sports Complex,Sports Event,Morning,294,Vandalism,1
+Library,Party,Morning,213,Theft,1
+Library,Festival,Morning,173,Fire,1
+Lecture Hall,Seminar,Afternoon,260,Disturbance,1
+Lecture Hall,Festival,Afternoon,236,Vandalism,1
+Cafeteria,Seminar,Night,445,Theft,2
+Cafeteria,Party,Evening,390,Medical,2
+Sports Complex,Seminar,Morning,469,Disturbance,2
+Lecture Hall,Sports Event,Afternoon,16,Vandalism,0
+Library,Sports Event,Afternoon,38,Fire,0
+Cafeteria,Sports Event,Morning,404,Theft,2
+Cafeteria,Sports Event,Evening,42,Vandalism,0
+Library,Festival,Morning,143,Fire,1
+Cafeteria,Party,Evening,376,Vandalism,2
+Sports Complex,Seminar,Afternoon,88,Disturbance,0
+Lecture Hall,Seminar,Evening,425,Disturbance,2
+Library,Sports Event,Night,444,Disturbance,2
+Lecture Hall,Sports Event,Afternoon,468,Theft,2
+Cafeteria,Concert,Night,67,Disturbance,0
+Cafeteria,Party,Morning,480,Fire,2
+Library,Festival,Morning,35,Vandalism,0
+Sports Complex,Seminar,Morning,491,Medical,2
+Dormitory,Concert,Evening,439,Fire,2
+Library,Concert,Afternoon,235,Fire,1
+Dormitory,Seminar,Morning,294,Disturbance,1
+Dormitory,Festival,Morning,13,Theft,0
+Sports Complex,Concert,Afternoon,474,Vandalism,2
+Dormitory,Concert,Morning,108,Theft,1
+Dormitory,Party,Night,406,Vandalism,2
+Sports Complex,Festival,Afternoon,498,Vandalism,2
+Dormitory,Concert,Afternoon,48,Theft,0
+Dormitory,Festival,Afternoon,280,Fire,1
+Dormitory,Seminar,Night,384,Vandalism,2
+Library,Sports Event,Afternoon,294,Theft,1
+Library,Concert,Night,166,Vandalism,1
+Library,Party,Afternoon,84,Medical,0
+Sports Complex,Seminar,Evening,381,Fire,2
+Cafeteria,Festival,Morning,297,Disturbance,1
+Dormitory,Seminar,Evening,139,Vandalism,1
+Dormitory,Concert,Morning,184,Medical,1
+Sports Complex,Festival,Night,471,Disturbance,2
+Dormitory,Sports Event,Evening,93,Disturbance,0
+Library,Seminar,Afternoon,31,Vandalism,0
+Cafeteria,Concert,Morning,468,Theft,2
+Lecture Hall,Party,Morning,36,Vandalism,0
+Dormitory,Festival,Evening,204,Medical,1
+Library,Seminar,Night,346,Disturbance,2
+Lecture Hall,Seminar,Evening,391,Vandalism,2
+Cafeteria,Sports Event,Night,245,Theft,1
+Lecture Hall,Sports Event,Night,449,Vandalism,2
+Library,Party,Morning,101,Fire,1
+Lecture Hall,Party,Evening,486,Theft,2
+Sports Complex,Concert,Evening,30,Medical,0
+Lecture Hall,Concert,Night,312,Disturbance,2
+Dormitory,Party,Evening,473,Vandalism,2
+Dormitory,Party,Afternoon,366,Theft,2
+Sports Complex,Festival,Afternoon,452,Fire,2
+Library,Sports Event,Evening,93,Theft,0
+Dormitory,Concert,Evening,271,Fire,1
+Cafeteria,Sports Event,Night,156,Medical,1
+Dormitory,Sports Event,Afternoon,450,Disturbance,2
+Dormitory,Party,Afternoon,462,Medical,2
+Library,Festival,Morning,396,Vandalism,2
+Lecture Hall,Seminar,Night,266,Theft,1
+Dormitory,Festival,Morning,67,Fire,0
+Sports Complex,Festival,Afternoon,389,Fire,2
+Lecture Hall,Sports Event,Night,431,Theft,2
+Cafeteria,Festival,Evening,24,Theft,0
+Library,Concert,Night,171,Vandalism,1
+Cafeteria,Sports Event,Evening,454,Medical,2
+Lecture Hall,Concert,Evening,172,Fire,1
+Lecture Hall,Seminar,Night,329,Vandalism,2
+Lecture Hall,Sports Event,Evening,290,Medical,1
+Cafeteria,Seminar,Morning,289,Vandalism,1
+Lecture Hall,Sports Event,Afternoon,21,Fire,0
+Cafeteria,Party,Evening,283,Theft,1
+Lecture Hall,Festival,Morning,280,Theft,1
+Sports Complex,Party,Evening,217,Medical,1
+Lecture Hall,Seminar,Afternoon,36,Disturbance,0
+Cafeteria,Festival,Morning,81,Medical,0
+Dormitory,Sports Event,Afternoon,69,Disturbance,0
+Lecture Hall,Festival,Afternoon,439,Vandalism,2
+Dormitory,Concert,Morning,482,Vandalism,2
+Sports Complex,Festival,Morning,154,Fire,1
+Library,Concert,Morning,102,Disturbance,1
+Sports Complex,Festival,Night,318,Fire,2
+Lecture Hall,Concert,Morning,17,Theft,0
+Dormitory,Seminar,Morning,88,Disturbance,0
+Dormitory,Party,Morning,36,Medical,0
+Cafeteria,Sports Event,Morning,183,Theft,1
+Dormitory,Festival,Evening,59,Theft,0
+Cafeteria,Party,Night,208,Medical,1
+Library,Sports Event,Afternoon,396,Theft,2
+Lecture Hall,Sports Event,Morning,358,Disturbance,2
+Cafeteria,Concert,Evening,457,Fire,2
+Library,Seminar,Evening,437,Theft,2
+Dormitory,Seminar,Evening,190,Disturbance,1
+Dormitory,Party,Afternoon,33,Vandalism,0
+Library,Seminar,Morning,325,Disturbance,2
+Dormitory,Festival,Night,387,Fire,2
+Library,Seminar,Night,396,Disturbance,2
+Cafeteria,Party,Evening,413,Medical,2
+Cafeteria,Seminar,Afternoon,55,Fire,0
+Library,Festival,Afternoon,24,Vandalism,0
+Cafeteria,Concert,Afternoon,162,Medical,1
+Cafeteria,Party,Night,231,Disturbance,1
+Cafeteria,Concert,Evening,215,Fire,1
+Sports Complex,Concert,Morning,464,Vandalism,2
+Lecture Hall,Concert,Night,282,Medical,1
+Dormitory,Sports Event,Evening,391,Vandalism,2
+Sports Complex,Sports Event,Evening,245,Disturbance,1
+Cafeteria,Concert,Morning,349,Vandalism,2
+Library,Party,Morning,237,Theft,1
+Cafeteria,Festival,Morning,18,Medical,0
+Lecture Hall,Festival,Afternoon,175,Vandalism,1
+Cafeteria,Seminar,Morning,441,Disturbance,2
+Library,Party,Evening,453,Disturbance,2
+Lecture Hall,Sports Event,Morning,328,Vandalism,2
+Cafeteria,Concert,Evening,223,Disturbance,1
+Lecture Hall,Seminar,Night,126,Fire,1
+Dormitory,Festival,Afternoon,395,Fire,2
+Dormitory,Sports Event,Night,353,Fire,2
+Cafeteria,Sports Event,Night,81,Theft,0
+Lecture Hall,Concert,Evening,404,Vandalism,2
+Library,Festival,Night,73,Theft,0
+Cafeteria,Party,Evening,214,Disturbance,1
+Dormitory,Sports Event,Morning,218,Theft,1
+Dormitory,Concert,Morning,81,Disturbance,0
+Cafeteria,Party,Evening,286,Disturbance,1
+Lecture Hall,Festival,Morning,283,Medical,1
+Dormitory,Sports Event,Afternoon,487,Fire,2
+Lecture Hall,Party,Night,329,Disturbance,2
+Dormitory,Party,Afternoon,347,Medical,2
+Dormitory,Party,Night,375,Fire,2
+Sports Complex,Sports Event,Morning,104,Disturbance,1
+Dormitory,Sports Event,Afternoon,175,Disturbance,1
+Library,Seminar,Morning,41,Theft,0
+Cafeteria,Festival,Night,20,Theft,0
+Cafeteria,Concert,Evening,310,Fire,2
+Lecture Hall,Party,Evening,226,Disturbance,1
+Dormitory,Seminar,Afternoon,298,Vandalism,1
+Library,Concert,Morning,111,Theft,1
+Lecture Hall,Seminar,Morning,434,Fire,2
+Sports Complex,Sports Event,Afternoon,401,Disturbance,2
+Lecture Hall,Party,Evening,276,Disturbance,1
+Lecture Hall,Concert,Night,223,Vandalism,1
+Dormitory,Concert,Afternoon,188,Fire,1
+Sports Complex,Concert,Night,97,Disturbance,0
+Lecture Hall,Concert,Evening,50,Theft,0
+Library,Concert,Morning,410,Vandalism,2
+Library,Seminar,Evening,85,Fire,0
+Cafeteria,Party,Afternoon,386,Vandalism,2
+Sports Complex,Sports Event,Morning,55,Theft,0
+Sports Complex,Sports Event,Afternoon,169,Fire,1
+Cafeteria,Sports Event,Afternoon,472,Vandalism,2
+Lecture Hall,Sports Event,Evening,89,Medical,0
+Sports Complex,Seminar,Afternoon,319,Theft,2
+Library,Festival,Evening,95,Theft,0
+Library,Party,Morning,101,Theft,1
+Dormitory,Concert,Evening,157,Medical,1
+Sports Complex,Festival,Morning,170,Medical,1
+Lecture Hall,Sports Event,Evening,211,Disturbance,1
+Cafeteria,Festival,Night,433,Vandalism,2
+Cafeteria,Party,Night,425,Disturbance,2
+Lecture Hall,Concert,Afternoon,251,Vandalism,1
+Dormitory,Concert,Evening,362,Medical,2
+Cafeteria,Party,Evening,11,Medical,0
+Sports Complex,Party,Morning,234,Disturbance,1
+Dormitory,Sports Event,Afternoon,298,Fire,1
+Sports Complex,Concert,Evening,242,Disturbance,1
+Library,Festival,Afternoon,470,Vandalism,2
+Dormitory,Seminar,Night,423,Disturbance,2
+Cafeteria,Seminar,Evening,426,Theft,2
+Dormitory,Party,Evening,86,Vandalism,0
+Dormitory,Sports Event,Afternoon,125,Vandalism,1
+Dormitory,Seminar,Evening,163,Fire,1
+Dormitory,Concert,Afternoon,415,Medical,2
+Sports Complex,Party,Evening,112,Vandalism,1
+Library,Festival,Morning,203,Medical,1
+Lecture Hall,Party,Afternoon,175,Disturbance,1
+Dormitory,Festival,Evening,368,Theft,2
+Cafeteria,Party,Night,99,Fire,0
+Dormitory,Party,Evening,183,Medical,1
+Cafeteria,Party,Night,131,Vandalism,1
+Sports Complex,Festival,Night,152,Medical,1
+Cafeteria,Festival,Morning,491,Vandalism,2
+Lecture Hall,Party,Afternoon,115,Medical,1
+Library,Seminar,Evening,384,Vandalism,2
+Cafeteria,Sports Event,Morning,437,Disturbance,2
+Cafeteria,Sports Event,Evening,314,Vandalism,2
+Library,Sports Event,Night,369,Vandalism,2
+Lecture Hall,Festival,Afternoon,468,Theft,2
+Dormitory,Festival,Evening,326,Vandalism,2
+Cafeteria,Seminar,Evening,460,Theft,2
+Library,Sports Event,Night,132,Fire,1
+Sports Complex,Sports Event,Evening,399,Theft,2
+Library,Party,Evening,18,Disturbance,0
+Sports Complex,Festival,Night,271,Theft,1
+Lecture Hall,Sports Event,Morning,82,Fire,0
+Dormitory,Seminar,Night,368,Disturbance,2
+Library,Seminar,Morning,232,Medical,1
+Cafeteria,Sports Event,Afternoon,425,Medical,2
+Lecture Hall,Festival,Morning,50,Theft,0
+Library,Seminar,Morning,379,Theft,2
+Cafeteria,Party,Afternoon,213,Fire,1
+Library,Seminar,Morning,273,Fire,1
+Sports Complex,Concert,Night,337,Vandalism,2
+Library,Concert,Morning,187,Fire,1
+Library,Festival,Afternoon,357,Vandalism,2
+Library,Sports Event,Night,327,Disturbance,2
