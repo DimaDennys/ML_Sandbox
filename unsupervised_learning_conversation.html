@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unsupervised Learning — Full Conversation</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; font-size: 15px; line-height: 1.7; background: #f5f5f3; color: #1a1a18; }
+  .page { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  h2 { font-size: 18px; font-weight: 600; margin: 28px 0 10px; }
+  h3 { font-size: 15px; font-weight: 600; margin: 20px 0 8px; }
+  p { margin-bottom: 12px; }
+  ul, ol { padding-left: 24px; margin-bottom: 12px; }
+  li { margin-bottom: 4px; }
+  code { font-family: monospace; background: #eee; padding: 1px 5px; border-radius: 3px; font-size: 13px; }
+
+  /* Chat bubbles */
+  .turn { display: flex; gap: 14px; margin-bottom: 32px; align-items: flex-start; }
+  .turn.user { flex-direction: row-reverse; }
+  .avatar { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: #fff; }
+  .avatar.claude { background: #c47a3e; }
+  .avatar.user  { background: #4a4a8a; }
+  .bubble { max-width: 780px; background: #fff; border-radius: 14px; padding: 18px 22px; border: 0.5px solid #ddd; }
+  .turn.user .bubble { background: #eef2ff; border-color: #c8d0f0; }
+  .label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin-bottom: 8px; }
+
+  /* Diagrams */
+  .diagram-card { background: #fff; border: 0.5px solid #ddd; border-radius: 12px; padding: 20px; margin: 20px 0; overflow-x: auto; }
+  .diagram-card svg { width: 100%; max-width: 680px; display: block; margin: 0 auto; }
+  .diagram-caption { font-size: 12px; color: #777; text-align: center; margin-top: 10px; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th { background: #f0f0ee; font-weight: 600; padding: 8px 12px; border: 1px solid #ddd; text-align: left; }
+  td { padding: 7px 12px; border: 1px solid #ddd; }
+  tr:nth-child(even) td { background: #fafaf8; }
+
+  /* Inline SVG color classes — minimal light-mode version */
+  .c-blue   rect, .c-blue   circle { fill: #E6F1FB; stroke: #185FA5; }
+  .c-blue   .th, .c-blue   .t  { fill: #0C447C; }
+  .c-blue   .ts { fill: #185FA5; }
+  .c-teal   rect, .c-teal   circle { fill: #E1F5EE; stroke: #0F6E56; }
+  .c-teal   .th, .c-teal   .t  { fill: #085041; }
+  .c-teal   .ts { fill: #0F6E56; }
+  .c-amber  rect, .c-amber  circle { fill: #FAEEDA; stroke: #854F0B; }
+  .c-amber  .th, .c-amber  .t  { fill: #633806; }
+  .c-amber  .ts { fill: #854F0B; }
+  .c-purple rect, .c-purple circle { fill: #EEEDFE; stroke: #534AB7; }
+  .c-purple .th, .c-purple .t  { fill: #3C3489; }
+  .c-purple .ts { fill: #534AB7; }
+  .c-coral  rect, .c-coral  circle { fill: #FAECE7; stroke: #993C1D; }
+  .c-coral  .th, .c-coral  .t  { fill: #712B13; }
+  .c-coral  .ts { fill: #993C1D; }
+  .c-gray   rect, .c-gray   circle { fill: #F1EFE8; stroke: #5F5E5A; }
+  .c-gray   .th, .c-gray   .t  { fill: #2C2C2A; }
+  .c-gray   .ts { fill: #5F5E5A; }
+  .th { font-weight: 600; font-size: 14px; }
+  .t  { font-size: 14px; }
+  .ts { font-size: 12px; }
+  .arr { stroke: #888; stroke-width: 1.5; fill: none; }
+  line { stroke: #aaa; }
+
+  /* Chart containers */
+  .chart-wrap { position: relative; width: 100%; height: 280px; margin: 12px 0; }
+  canvas { display: block; }
+
+  /* Legend */
+  .legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 12px; color: #555; margin-bottom: 8px; }
+  .legend span { display: flex; align-items: center; gap: 5px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .legend-sq  { width: 10px; height: 10px; border-radius: 2px; }
+
+  /* Section divider */
+  hr { border: none; border-top: 1px solid #e0e0dc; margin: 36px 0; }
+
+  /* Cover */
+  .cover { background: #fff; border-radius: 14px; border: 0.5px solid #ddd; padding: 32px 36px; margin-bottom: 36px; }
+  .cover h1 { color: #1a1a18; }
+  .cover .meta { font-size: 13px; color: #888; margin-top: 8px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="cover">
+    <h1>Unsupervised Learning — Full Conversation</h1>
+    <div class="meta">Exported from Claude · Includes all diagrams, charts, and examples</div>
+  </div>
+
+  <!-- ══════════════════ TURN 1 — USER ══════════════════ -->
+  <div class="turn user">
+    <div class="avatar user">U</div>
+    <div class="bubble">
+      <div class="label">You</div>
+      <p>What I should know about unsupervised learning</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════ TURN 2 — CLAUDE ══════════════════ -->
+  <div class="turn">
+    <div class="avatar claude">C</div>
+    <div class="bubble">
+      <div class="label">Claude</div>
+      <p>Unsupervised learning is a type of machine learning where algorithms find patterns in data <strong>without labeled examples</strong>. Here's what you should know:</p>
+
+      <h2>What It Is</h2>
+      <p>Unlike supervised learning (where you train on input-output pairs), unsupervised learning lets the algorithm discover structure on its own. The data has no "right answers" to guide it.</p>
+
+      <h2>Core Techniques</h2>
+      <h3>Clustering — grouping similar data points together</h3>
+      <ul>
+        <li><em>K-Means</em>: divides data into K clusters by minimising distance to centroids</li>
+        <li><em>DBSCAN</em>: finds clusters of arbitrary shape based on density</li>
+        <li><em>Hierarchical clustering</em>: builds a tree of nested clusters</li>
+      </ul>
+
+      <h3>Dimensionality Reduction — compressing data while preserving structure</h3>
+      <ul>
+        <li><em>PCA (Principal Component Analysis)</em>: finds directions of maximum variance</li>
+        <li><em>t-SNE / UMAP</em>: great for visualising high-dimensional data in 2D/3D</li>
+        <li><em>Autoencoders</em>: neural networks that learn compressed representations</li>
+      </ul>
+
+      <h3>Density Estimation — learning the underlying data distribution</h3>
+      <ul>
+        <li><em>Gaussian Mixture Models (GMMs)</em>: models data as a mix of Gaussian distributions</li>
+        <li><em>Kernel Density Estimation (KDE)</em>: non-parametric distribution estimation</li>
+      </ul>
+
+      <h3>Generative Models — learning to generate new data</h3>
+      <ul>
+        <li><em>VAEs (Variational Autoencoders)</em>: encode data into a latent space and decode it</li>
+        <li><em>GANs (Generative Adversarial Networks)</em>: two networks compete to produce realistic data</li>
+      </ul>
+
+      <h2>Key Use Cases</h2>
+      <ul>
+        <li>Customer segmentation</li>
+        <li>Anomaly/fraud detection</li>
+        <li>Recommendation systems</li>
+        <li>Topic modelling in text (e.g. LDA)</li>
+        <li>Image compression</li>
+        <li>Feature learning for downstream tasks</li>
+      </ul>
+
+      <h2>Key Challenges</h2>
+      <ul>
+        <li><strong>No ground truth</strong> — hard to evaluate how well it's working</li>
+        <li><strong>Choosing the right number of clusters</strong> (e.g., picking K in K-Means)</li>
+        <li><strong>Interpretability</strong> — clusters or components may not have obvious meaning</li>
+        <li><strong>Sensitivity to scale</strong> — many algorithms require feature normalisation</li>
+      </ul>
+
+      <h2>How to Evaluate It</h2>
+      <p>Since there are no labels, you rely on:</p>
+      <ul>
+        <li><strong>Silhouette score</strong> — how well-separated clusters are</li>
+        <li><strong>Inertia / Within-cluster sum of squares</strong></li>
+        <li><strong>Elbow method</strong> — for choosing K</li>
+        <li><strong>Domain knowledge</strong> — do the results make practical sense?</li>
+      </ul>
+
+      <h2>Relationship to Other Learning Types</h2>
+      <table>
+        <tr><th>Type</th><th>Labels</th><th>Goal</th></tr>
+        <tr><td>Supervised</td><td>Yes</td><td>Predict outputs</td></tr>
+        <tr><td>Unsupervised</td><td>No</td><td>Find structure</td></tr>
+        <tr><td>Semi-supervised</td><td>Some</td><td>Mix of both</td></tr>
+        <tr><td>Self-supervised</td><td>Generated</td><td>Learn representations</td></tr>
+      </table>
+
+      <p>The biggest takeaway: unsupervised learning is powerful for <strong>exploration and representation</strong>, especially when labelling data is expensive or impossible. It's often a first step before applying supervised methods.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════ TURN 3 — USER ══════════════════ -->
+  <div class="turn user">
+    <div class="avatar user">U</div>
+    <div class="bubble">
+      <div class="label">You</div>
+      <p>Great — I would need real-world examples for all of them and a better two of them: one for industrial automation engineering and general which the best suite to the Core Techniques</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════ TURN 4 — CLAUDE (overview diagram + deep dives) ══════════════════ -->
+  <div class="turn">
+    <div class="avatar claude">C</div>
+    <div class="bubble">
+      <div class="label">Claude</div>
+
+      <p>Here is an overview of all four techniques with both general and industrial examples, followed by deep dives for each.</p>
+
+      <!-- OVERVIEW DIAGRAM -->
+      <div class="diagram-card">
+        <svg viewBox="0 0 680 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+          <text class="th" x="340" y="36" text-anchor="middle" font-size="15" fill="#1a1a18" font-family="Arial">Unsupervised learning — four core techniques</text>
+          <!-- Clustering -->
+          <g class="c-blue">
+            <rect x="20" y="60" width="300" height="200" rx="12" stroke-width="0.5"/>
+            <text class="th" x="170" y="90" text-anchor="middle" font-family="Arial">Clustering</text>
+            <text class="ts" x="170" y="108" text-anchor="middle" font-family="Arial">Group similar data without labels</text>
+            <line x1="40" y1="118" x2="280" y2="118" stroke-width="0.5"/>
+            <text class="ts" x="40" y="138" font-family="Arial">General: Customer segmentation by</text>
+            <text class="ts" x="40" y="155" font-family="Arial">purchase behaviour (K-Means)</text>
+            <text class="ts" x="40" y="175" font-family="Arial">Industrial: Group CNC machine sensor</text>
+            <text class="ts" x="40" y="192" font-family="Arial">readings into fault vs normal modes</text>
+            <text class="ts" x="40" y="212" font-family="Arial">Algo fit: K-Means, DBSCAN,</text>
+            <text class="ts" x="40" y="229" font-family="Arial">Hierarchical clustering</text>
+          </g>
+          <!-- Dim Reduction -->
+          <g class="c-teal">
+            <rect x="360" y="60" width="300" height="200" rx="12" stroke-width="0.5"/>
+            <text class="th" x="510" y="90" text-anchor="middle" font-family="Arial">Dimensionality reduction</text>
+            <text class="ts" x="510" y="108" text-anchor="middle" font-family="Arial">Compress data, preserve structure</text>
+            <line x1="380" y1="118" x2="620" y2="118" stroke-width="0.5"/>
+            <text class="ts" x="380" y="138" font-family="Arial">General: Visualise 500-feature genomics</text>
+            <text class="ts" x="380" y="155" font-family="Arial">dataset in 2D via UMAP</text>
+            <text class="ts" x="380" y="175" font-family="Arial">Industrial: Compress vibration + temp</text>
+            <text class="ts" x="380" y="192" font-family="Arial">signals from motors into 3 key features</text>
+            <text class="ts" x="380" y="212" font-family="Arial">Algo fit: PCA, UMAP, t-SNE,</text>
+            <text class="ts" x="380" y="229" font-family="Arial">Autoencoders</text>
+          </g>
+          <!-- Density Estimation -->
+          <g class="c-amber">
+            <rect x="20" y="290" width="300" height="200" rx="12" stroke-width="0.5"/>
+            <text class="th" x="170" y="320" text-anchor="middle" font-family="Arial">Density estimation</text>
+            <text class="ts" x="170" y="338" text-anchor="middle" font-family="Arial">Model the data distribution</text>
+            <line x1="40" y1="348" x2="280" y2="348" stroke-width="0.5"/>
+            <text class="ts" x="40" y="368" font-family="Arial">General: Flag rare credit card</text>
+            <text class="ts" x="40" y="385" font-family="Arial">transactions as fraud (GMM)</text>
+            <text class="ts" x="40" y="405" font-family="Arial">Industrial: Learn normal pressure/temp</text>
+            <text class="ts" x="40" y="422" font-family="Arial">envelope; alert on deviations</text>
+            <text class="ts" x="40" y="442" font-family="Arial">Algo fit: GMM, KDE,</text>
+            <text class="ts" x="40" y="459" font-family="Arial">Isolation Forest</text>
+          </g>
+          <!-- Generative Models -->
+          <g class="c-purple">
+            <rect x="360" y="290" width="300" height="200" rx="12" stroke-width="0.5"/>
+            <text class="th" x="510" y="320" text-anchor="middle" font-family="Arial">Generative models</text>
+            <text class="ts" x="510" y="338" text-anchor="middle" font-family="Arial">Learn to generate new data</text>
+            <line x1="380" y1="348" x2="620" y2="348" stroke-width="0.5"/>
+            <text class="ts" x="380" y="368" font-family="Arial">General: Generate synthetic patient</text>
+            <text class="ts" x="380" y="385" font-family="Arial">records for privacy-safe research</text>
+            <text class="ts" x="380" y="405" font-family="Arial">Industrial: Synthesise rare motor failure</text>
+            <text class="ts" x="380" y="422" font-family="Arial">events to augment training data</text>
+            <text class="ts" x="380" y="442" font-family="Arial">Algo fit: VAE, GAN,</text>
+            <text class="ts" x="380" y="459" font-family="Arial">Diffusion models</text>
+          </g>
+        </svg>
+        <div class="diagram-caption">Overview of all four techniques with industrial and general examples</div>
+      </div>
+
+      <hr>
+
+      <!-- ── CLUSTERING ── -->
+      <h2>Clustering</h2>
+      <h3>Industrial: Predictive maintenance on a production line</h3>
+      <p>Imagine a bottling plant with 50 sensors per machine — vibration, temperature, pressure, RPM — logging every second. No one has labelled which readings are "about to fail." You run K-Means on a rolling 10-minute window of sensor data. The algorithm discovers 4 natural groups: <em>normal operation</em>, <em>warm-up state</em>, <em>thermal stress</em>, and a small fourth cluster that precedes 80% of past breakdowns. Now the line stops <em>before</em> the failure, not after.</p>
+
+      <div class="diagram-card">
+        <svg viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+          <g class="c-gray">
+            <rect x="20" y="130" width="120" height="70" rx="8" stroke-width="0.5"/>
+            <text class="th" x="80" y="160" text-anchor="middle" font-family="Arial">Sensor</text>
+            <text class="th" x="80" y="178" text-anchor="middle" font-family="Arial">stream</text>
+            <text class="ts" x="80" y="195" text-anchor="middle" font-family="Arial">50 signals/sec</text>
+          </g>
+          <line x1="140" y1="165" x2="178" y2="165" stroke="#888" stroke-width="1.5" marker-end="url(#arrow2)" fill="none"/>
+          <g class="c-blue">
+            <rect x="180" y="100" width="140" height="130" rx="8" stroke-width="0.5"/>
+            <text class="th" x="250" y="130" text-anchor="middle" font-family="Arial">K-Means</text>
+            <text class="ts" x="250" y="148" text-anchor="middle" font-family="Arial">K = 4 clusters</text>
+            <line x1="195" y1="158" x2="305" y2="158" stroke-width="0.5"/>
+            <text class="ts" x="250" y="174" text-anchor="middle" font-family="Arial">Minimises distance</text>
+            <text class="ts" x="250" y="190" text-anchor="middle" font-family="Arial">to cluster centroid</text>
+            <text class="ts" x="250" y="210" text-anchor="middle" font-family="Arial">Re-runs each window</text>
+          </g>
+          <line x1="320" y1="165" x2="358" y2="165" stroke="#888" stroke-width="1.5" marker-end="url(#arrow2)" fill="none"/>
+          <g class="c-teal">
+            <rect x="360" y="40" width="130" height="50" rx="8" stroke-width="0.5"/>
+            <text class="th" x="425" y="64" text-anchor="middle" font-family="Arial">Normal ops</text>
+            <text class="ts" x="425" y="80" text-anchor="middle" font-family="Arial">No action needed</text>
+          </g>
+          <g class="c-blue">
+            <rect x="360" y="105" width="130" height="50" rx="8" stroke-width="0.5"/>
+            <text class="th" x="425" y="129" text-anchor="middle" font-family="Arial">Warm-up state</text>
+            <text class="ts" x="425" y="145" text-anchor="middle" font-family="Arial">Monitor closely</text>
+          </g>
+          <g class="c-amber">
+            <rect x="360" y="170" width="130" height="50" rx="8" stroke-width="0.5"/>
+            <text class="th" x="425" y="194" text-anchor="middle" font-family="Arial">Thermal stress</text>
+            <text class="ts" x="425" y="210" text-anchor="middle" font-family="Arial">Reduce load</text>
+          </g>
+          <g class="c-coral">
+            <rect x="360" y="235" width="130" height="50" rx="8" stroke-width="0.5"/>
+            <text class="th" x="425" y="259" text-anchor="middle" font-family="Arial">Pre-failure signal</text>
+            <text class="ts" x="425" y="275" text-anchor="middle" font-family="Arial">Stop line now</text>
+          </g>
+          <line x1="356" y1="155" x2="358" y2="65" stroke="#bbb" stroke-width="0.5" fill="none"/>
+          <line x1="356" y1="165" x2="358" y2="130" stroke="#bbb" stroke-width="0.5" fill="none"/>
+          <line x1="356" y1="175" x2="358" y2="195" stroke="#bbb" stroke-width="0.5" fill="none"/>
+          <line x1="356" y1="185" x2="358" y2="260" stroke="#bbb" stroke-width="0.5" fill="none"/>
+          <g class="c-gray">
+            <rect x="510" y="235" width="150" height="50" rx="8" stroke-width="0.5"/>
+            <text class="th" x="585" y="258" text-anchor="middle" font-family="Arial">Alert + schedule</text>
+            <text class="ts" x="585" y="275" text-anchor="middle" font-family="Arial">maintenance</text>
+          </g>
+          <line x1="490" y1="260" x2="508" y2="260" stroke="#888" stroke-width="1.5" marker-end="url(#arrow2)" fill="none"/>
+          <text class="ts" x="340" y="320" text-anchor="middle" font-family="Arial" fill="#666">Each 10-minute sensor window is assigned to one of 4 clusters in real time</text>
+        </svg>
+      </div>
+
+      <h3>General: E-commerce customer segmentation</h3>
+      <p>An online retailer with 2 million customers uses K-Means on purchase frequency, average order value, and product categories. The algorithm discovers 5 segments: <em>bargain hunters</em>, <em>loyal high-spenders</em>, <em>seasonal buyers</em>, <em>browse-only</em>, and <em>bulk B2B buyers</em>. Each gets a tailored campaign — nobody decided these groups in advance, the data revealed them.</p>
+
+      <hr>
+
+      <!-- ── DIMENSIONALITY REDUCTION ── -->
+      <h2>Dimensionality Reduction</h2>
+      <h3>Industrial: Real-time motor health monitoring (wind turbines)</h3>
+      <p>A wind turbine farm logs 300+ signals per turbine (vibration on 3 axes, bearing temperatures, gearbox acoustics, current harmonics). PCA compresses these into 3 principal components that capture 94% of variance. Engineers plot every turbine as a dot in a 2D space. Turbines drifting away from the main cluster are flagged for inspection — no threshold rules, no hand-crafted features required.</p>
+
+      <div class="diagram-card">
+        <div class="legend">
+          <span><span class="legend-dot" style="background:#1D9E75; display:inline-block;"></span>Healthy turbines</span>
+          <span><span class="legend-dot" style="background:#EF9F27; display:inline-block;"></span>Borderline</span>
+          <span><span class="legend-dot" style="background:#E24B4A; display:inline-block;"></span>Flagged — inspect</span>
+        </div>
+        <div class="chart-wrap" style="height:280px;">
+          <canvas id="drChart"></canvas>
+        </div>
+        <div class="diagram-caption">300+ raw signals → PCA → 2 principal components. Outliers surface naturally.</div>
+      </div>
+
+      <h3>General: Genomics research visualisation</h3>
+      <p>A cancer research lab has RNA sequencing data: 20,000 gene expression values per patient cell sample. UMAP reduces this to 2 dimensions. The result reveals 7 cell subtypes — including a rare one that only appears in patients who didn't respond to treatment. This single visualisation redirects years of lab work.</p>
+
+      <hr>
+
+      <!-- ── DENSITY ESTIMATION ── -->
+      <h2>Density Estimation</h2>
+      <h3>Industrial: Anomaly detection in hydraulic press systems</h3>
+      <p>A Gaussian Mixture Model is trained on months of "normal" operating data from a hydraulic press. The GMM learns that normal operation follows 3 Gaussian distributions (light load, medium load, heavy load). Any reading with log-likelihood below a threshold is flagged — catching a slow oil leak 3 weeks before catastrophic failure, something a simple threshold alarm would have missed.</p>
+
+      <div class="diagram-card">
+        <div class="legend">
+          <span><span class="legend-sq" style="background:#1D9E75; display:inline-block;"></span>Normal operating envelope (GMM)</span>
+          <span><span class="legend-sq" style="background:#E24B4A; display:inline-block;"></span>Anomalous readings</span>
+        </div>
+        <div class="chart-wrap" style="height:300px;">
+          <canvas id="densChart"></canvas>
+        </div>
+        <div class="diagram-caption">Points outside the learned density envelope trigger an alert — no hand-crafted thresholds needed</div>
+      </div>
+
+      <h3>General: Fraud detection in banking</h3>
+      <p>A bank trains a GMM on millions of legitimate transactions. When a transaction arrives, its likelihood under the learned distribution is scored. A £4,000 charge at 3am from an overseas merchant codes as extremely low-density — flagged instantly. Unlike rule-based systems, density estimation catches novel fraud patterns that don't match any known rule.</p>
+
+      <hr>
+
+      <!-- ── GENERATIVE MODELS ── -->
+      <h2>Generative Models</h2>
+      <h3>Industrial: Synthetic fault data for rare failure modes</h3>
+      <p>A turbine manufacturer wants to train a supervised fault classifier but has only 12 real examples of a rare bearing failure (out of 50,000 normal cycles). A VAE is trained on those 12 examples, learns the latent distribution, then generates 5,000 synthetic fault cycles. The resulting classifier achieves 91% recall on that rare class, up from 34% without synthetic augmentation.</p>
+
+      <div class="diagram-card">
+        <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+          <g class="c-coral">
+            <rect x="20" y="115" width="130" height="60" rx="8" stroke-width="0.5"/>
+            <text class="th" x="85" y="141" text-anchor="middle" font-family="Arial">12 real fault</text>
+            <text class="th" x="85" y="159" text-anchor="middle" font-family="Arial">examples</text>
+            <text class="ts" x="85" y="175" text-anchor="middle" font-family="Arial">Bearing failure cycles</text>
+          </g>
+          <line x1="150" y1="145" x2="178" y2="145" stroke="#888" stroke-width="1.5" marker-end="url(#arrow3)" fill="none"/>
+          <g class="c-purple">
+            <rect x="180" y="90" width="110" height="110" rx="8" stroke-width="0.5"/>
+            <text class="th" x="235" y="120" text-anchor="middle" font-family="Arial">Encoder</text>
+            <text class="ts" x="235" y="138" text-anchor="middle" font-family="Arial">Compress to</text>
+            <text class="ts" x="235" y="154" text-anchor="middle" font-family="Arial">latent space</text>
+            <text class="ts" x="235" y="170" text-anchor="middle" font-family="Arial">μ and σ</text>
+            <text class="ts" x="235" y="188" text-anchor="middle" font-family="Arial">per dimension</text>
+          </g>
+          <line x1="290" y1="145" x2="318" y2="145" stroke="#888" stroke-width="1.5" marker-end="url(#arrow3)" fill="none"/>
+          <g class="c-blue">
+            <rect x="320" y="105" width="100" height="80" rx="8" stroke-width="0.5"/>
+            <text class="th" x="370" y="135" text-anchor="middle" font-family="Arial">Latent</text>
+            <text class="th" x="370" y="153" text-anchor="middle" font-family="Arial">space</text>
+            <text class="ts" x="370" y="170" text-anchor="middle" font-family="Arial">z ~ N(μ, σ²)</text>
+          </g>
+          <line x1="420" y1="145" x2="448" y2="145" stroke="#888" stroke-width="1.5" marker-end="url(#arrow3)" fill="none"/>
+          <g class="c-purple">
+            <rect x="450" y="90" width="110" height="110" rx="8" stroke-width="0.5"/>
+            <text class="th" x="505" y="120" text-anchor="middle" font-family="Arial">Decoder</text>
+            <text class="ts" x="505" y="138" text-anchor="middle" font-family="Arial">Sample latent</text>
+            <text class="ts" x="505" y="154" text-anchor="middle" font-family="Arial">vector → generate</text>
+            <text class="ts" x="505" y="170" text-anchor="middle" font-family="Arial">new fault cycle</text>
+            <text class="ts" x="505" y="188" text-anchor="middle" font-family="Arial">waveform</text>
+          </g>
+          <line x1="560" y1="145" x2="588" y2="145" stroke="#888" stroke-width="1.5" marker-end="url(#arrow3)" fill="none"/>
+          <g class="c-teal">
+            <rect x="590" y="100" width="78" height="90" rx="8" stroke-width="0.5"/>
+            <text class="th" x="629" y="132" text-anchor="middle" font-family="Arial">5,000</text>
+            <text class="th" x="629" y="150" text-anchor="middle" font-family="Arial">synthetic</text>
+            <text class="th" x="629" y="168" text-anchor="middle" font-family="Arial">faults</text>
+            <text class="ts" x="629" y="184" text-anchor="middle" font-family="Arial">Train classifier</text>
+          </g>
+          <text class="ts" x="340" y="240" text-anchor="middle" font-family="Arial" fill="#666">Recall on rare fault class: 34% → 91% after synthetic augmentation</text>
+          <text class="ts" x="340" y="260" text-anchor="middle" font-family="Arial" fill="#666">VAE — learns a continuous latent distribution over failure signatures</text>
+        </svg>
+      </div>
+
+      <h3>General: Synthetic medical data for privacy-safe research</h3>
+      <p>A hospital can't share real patient records due to GDPR. A GAN is trained on de-identified data and learns to produce realistic synthetic patient records that match the statistical properties of the real dataset but correspond to no actual person. Researchers can now build and validate models on 500,000 synthetic patients — with zero privacy risk.</p>
+
+      <hr>
+
+      <!-- ── SUMMARY TABLE ── -->
+      <h2>Summary comparison</h2>
+      <table>
+        <tr>
+          <th>Technique</th>
+          <th>Best for</th>
+          <th>Industrial sweet spot</th>
+          <th>General sweet spot</th>
+          <th>Key algo</th>
+        </tr>
+        <tr>
+          <td>Clustering</td>
+          <td>Finding unknown groups</td>
+          <td>Fault mode discovery</td>
+          <td>Customer segmentation</td>
+          <td>K-Means, DBSCAN</td>
+        </tr>
+        <tr>
+          <td>Dim. Reduction</td>
+          <td>Visualising &amp; compressing</td>
+          <td>Multi-sensor monitoring</td>
+          <td>Genomics, NLP embeddings</td>
+          <td>PCA, UMAP</td>
+        </tr>
+        <tr>
+          <td>Density Estimation</td>
+          <td>Anomaly detection</td>
+          <td>Process deviation alerts</td>
+          <td>Fraud detection</td>
+          <td>GMM, Isolation Forest</td>
+        </tr>
+        <tr>
+          <td>Generative Models</td>
+          <td>Data augmentation</td>
+          <td>Synthetic fault generation</td>
+          <td>Privacy-safe research</td>
+          <td>VAE, GAN</td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ── CHARTS ── -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+// Dimensionality Reduction scatter chart
+(function(){
+  function rng(s,v){return s+(Math.random()-0.5)*v;}
+  const healthy=Array.from({length:60},()=>({x:rng(0,3),y:rng(0,3)}));
+  const borderline=Array.from({length:10},()=>({x:rng(3.5,1.5),y:rng(3.5,1.5)}));
+  const flagged=[{x:6.2,y:5.8},{x:-4.5,y:5.0},{x:5.5,y:-3.8},{x:-3.8,y:-4.2}];
+  new Chart(document.getElementById('drChart'),{
+    type:'scatter',
+    data:{datasets:[
+      {label:'Healthy',data:healthy,backgroundColor:'#1D9E75',pointRadius:5},
+      {label:'Borderline',data:borderline,backgroundColor:'#EF9F27',pointRadius:6},
+      {label:'Flagged',data:flagged,backgroundColor:'#E24B4A',pointRadius:9,pointStyle:'triangle'}
+    ]},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:d=>`Turbine (PC1:${d.parsed.x.toFixed(1)}, PC2:${d.parsed.y.toFixed(1)})`}}},
+      scales:{
+        x:{title:{display:true,text:'Principal component 1 — vibration/load axis',font:{size:11}},grid:{color:'rgba(128,128,128,0.15)'}},
+        y:{title:{display:true,text:'PC 2 — thermal axis',font:{size:11}},grid:{color:'rgba(128,128,128,0.15)'}}
+      }
+    }
+  });
+})();
+
+// Density Estimation chart
+(function(){
+  function gauss(x,mu,sigma){return Math.exp(-0.5*((x-mu)/sigma)**2)/(sigma*Math.sqrt(2*Math.PI));}
+  function gmm(x){return 0.4*gauss(x,30,4)+0.35*gauss(x,55,5)+0.25*gauss(x,78,3);}
+  const xs=[],ys=[];
+  for(let x=10;x<=100;x+=0.5){xs.push(x);ys.push(gmm(x)*80);}
+  const normalPts=[];
+  for(let i=0;i<120;i++){
+    const centers=[30,55,78];
+    const c=centers[Math.floor(Math.random()*3)];
+    const v=c+(Math.random()-0.5)*10;
+    normalPts.push({x:v,y:gmm(v)*80+(Math.random()-0.5)*0.3});
+  }
+  const anomPts=[[14,0.8],[92,0.6],[20,3.5],[68,3.8],[10,1.2],[96,0.4],[42,0.5],[88,0.7]].map(([x,y])=>({x,y}));
+  new Chart(document.getElementById('densChart'),{
+    type:'scatter',
+    data:{datasets:[
+      {type:'line',label:'GMM density',data:xs.map((x,i)=>({x,y:ys[i]})),borderColor:'#1D9E75',backgroundColor:'rgba(29,158,117,0.12)',fill:true,pointRadius:0,tension:0.4,borderWidth:2},
+      {label:'Normal readings',data:normalPts,backgroundColor:'rgba(29,158,117,0.55)',pointRadius:4},
+      {label:'Anomalies',data:anomPts,backgroundColor:'#E24B4A',pointRadius:8,pointStyle:'crossRot',pointBorderWidth:2,pointBorderColor:'#E24B4A'}
+    ]},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:{
+        x:{title:{display:true,text:'Hydraulic pressure (bar)',font:{size:11}},min:5,max:105,grid:{color:'rgba(128,128,128,0.15)'}},
+        y:{title:{display:true,text:'Probability density',font:{size:11}},grid:{color:'rgba(128,128,128,0.15)'}}
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>
